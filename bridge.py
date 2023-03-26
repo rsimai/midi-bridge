@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 import mido
+import xair_api
+
+kind_id = "XR18"
+ip = "192.168.0.58"
+
+mixer = xair_api.connect(kind_id, ip=ip)
 
 myport = ""
 mydevice = "nanoKONTROL2"
