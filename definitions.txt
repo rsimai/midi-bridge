@@ -1,0 +1,53 @@
+Controller names
+
+mido reads device names including port. Examples
+X-TOUCH MINI:X-TOUCH MINI MIDI 1 28:0
+
+
+
+Controller elements
+
+
+Slider
+
+Potentiometer that delivers values 0-127. Message as dict may look like
+{'type': 'control_change', 'time': 0, 'control': 9, 'value': 83, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 9, 'value': 82, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 9, 'value': 81, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 9, 'value': 80, 'channel': 10}
+
+
+Encoder
+
+No mechanical stop, built in counter that delivers values 0-127
+{'type': 'control_change', 'time': 0, 'control': 1, 'value': 1, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 1, 'value': 2, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 1, 'value': 3, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 1, 'value': 4, 'channel': 10}
+
+
+Button
+
+Sends events for button down and button up. Can send note on/off or cc events where velocity 127 means pressed. Examples
+{'type': 'note_on', 'time': 0, 'note': 8, 'velocity': 127, 'channel': 10}
+{'type': 'note_off', 'time': 0, 'note': 8, 'velocity': 0, 'channel': 10}
+
+
+LED-button
+
+Monochrome LED associated with a button that can be set through MIDI to show a state.
+
+
+LED-ring
+
+A set of LEDs around the encoder that displays the current value. Can be set through MIDI.
+
+
+
+A MIDI message is unique with one of the following so it can be mapped to an activity
+
+type: 'control_change', 'control': [0-127], 'channel': [0-16] (and read content of 'value')
+type: 'note_on', 'note': [0-127], 'channel': [0-16]
+type: 'note_off', 'note': $value1, 'channel': [0-16]
+
+
