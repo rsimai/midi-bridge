@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.10
 import mido
 import xair_api
 
@@ -8,7 +8,7 @@ ip = "192.168.0.58"
 mixer = xair_api.connect(kind_id, ip=ip)
 
 myport = ""
-mydevice = "nanoKONTROL2"
+mydevice = "X-TOUCH"
 
 ports = mido.get_input_names()
 
@@ -25,6 +25,7 @@ if ( myport == ""):
 
 with mido.open_input(myport) as inport:
     for msg in inport:
+        msg = msg.dict()
         print(msg)
 
 
