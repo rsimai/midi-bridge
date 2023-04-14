@@ -2,7 +2,7 @@ Controller names
 
 mido reads device names including port. Examples
 X-TOUCH MINI:X-TOUCH MINI MIDI 1 28:0
-
+Impact LX25+:Impact LX25+ MIDI1 32:0
 
 
 Controller elements
@@ -31,6 +31,9 @@ Button
 Sends events for button down and button up. Can send note on/off or cc events where velocity 127 means pressed. Examples
 {'type': 'note_on', 'time': 0, 'note': 8, 'velocity': 127, 'channel': 10}
 {'type': 'note_off', 'time': 0, 'note': 8, 'velocity': 0, 'channel': 10}
+{'type': 'control_change', 'time': 0, 'control': 105, 'value': 127, 'channel': 15}
+{'type': 'control_change', 'time': 0, 'control': 105, 'value': 0, 'channel': 15}
+
 
 
 LED-button

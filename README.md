@@ -3,7 +3,7 @@
 An attempt to use generic MIDI controllers for various control purposes. Incoming MIDI events are mapped to outgoing commands that include
 
 * MIDI messages to target devices
-* OSC devices such as digital mixers
+* OSC capable devices such as digital mixers
 * system commands, such as emulating keystrokes
 
 ## Mappings 
@@ -35,6 +35,9 @@ LEDs associated with buttons or encoders wouldn't initially represent the target
 
 ### Toggle state
 In order to toggle one has to read the actual value first. This requires up to three activities: read state, change state, set indicator accordingly.
+
+### Latency
+Sliders that send (nearly) all values even when moving fast may create a lot of traffic and actions queue up. Skipping some may be required and justified, if superseded by following.
 
 ### Multiple devices of the same type
 There is no easy way to distinguish between them as the OS assigns the port but the config needs to allow.
